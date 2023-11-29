@@ -13,6 +13,15 @@ function updateTable() {
 
     document.getElementById(`assigned-to-${i}`).textContent = assignedName;
   }
+
+  // Update button onClick attributes
+  document.getElementById('prev-year').onclick = function() {
+    setYear(currentYear - 1);
+  };
+
+  document.getElementById('next-year').onclick = function() {
+    setYear(currentYear + 1);
+  };
 }
 
 // Function to set the current year explicitly and update the table
