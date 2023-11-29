@@ -16,12 +16,18 @@ function updateTable(year) {
 
   // Update button onClick attributes
   document.getElementById('prev-year').onclick = function() {
-    setYear(year - 1);
+    handleButtonClick(-1);
   };
 
   document.getElementById('next-year').onclick = function() {
-    setYear(year + 1);
+    handleButtonClick(1);
   };
+}
+
+// Function to handle button click events and update the year
+function handleButtonClick(change) {
+  const newYear = currentYear + change;
+  setYear(newYear);
 }
 
 // Function to set the current year explicitly and update the table
