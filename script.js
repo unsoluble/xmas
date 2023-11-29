@@ -15,20 +15,11 @@ function updateTable() {
   }
 }
 
-// Function to change the year and update the table
-function changeYear(change) {
-  const yearDifference = change % names.length;
-  rotationIndex = (rotationIndex - yearDifference + names.length) % names.length;
-
-  currentYear += change;
-
-  // Check for special cases where everyone is assigned their own self
-  if (currentYear % names.length === 0) {
-    // Override the rotation for these cases
-    rotationIndex = (rotationIndex + 1) % names.length;
-  }
-
+// Function to set the current year explicitly and update the table
+function setYear(year) {
+  currentYear = year;
   document.getElementById('year').textContent = currentYear;
+  rotationIndex = (rotationIndex + 1) % names.length; // Increment rotation index for the next year
   updateTable();
 }
 
