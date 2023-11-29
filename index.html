@@ -4,43 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gift Exchange</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 50%;
-      margin: 20px auto;
-    }
-
-    th, td {
-      border: 1px solid #dddddd;
-      text-align: center;
-      padding: 10px;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    #year-container {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    #year {
-      font-size: 24px;
-      font-weight: bold;
-      margin: 0 10px;
-    }
-
-    #year-buttons {
-      display: inline-block;
-      cursor: pointer;
-      font-size: 18px;
-      padding: 5px;
-      border: none;
-      background-color: #f2f2f2;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -49,8 +13,6 @@
     <span id="year">2023</span>
     <button id="next-year" onclick="changeYear(1)" class="year-buttons">&#9655;</button>
   </div>
-
-  <h2>Gift Exchange Assignments</h2>
 
   <table>
     <tr>
@@ -91,42 +53,7 @@
     </tr>
   </table>
 
-  <script>
-  // Initial data
-  const names = ["Megan", "Mike", "Jenny", "Mom", "John", "Mitts", "Alex", "Gino"];
-  let rotationIndex = 5; // Adjusted rotationIndex to 5
-  let currentYear = 2023;
-
-  // Function to update the table based on the current year
-  function updateTable() {
-    for (let i = 0; i < names.length; i++) {
-      const currentName = names[i];
-      const assignedIndex = (rotationIndex + i) % names.length;
-      const assignedName = names[assignedIndex];
-
-      document.getElementById(`assigned-to-${i}`).textContent = assignedName;
-    }
-  }
-
-  // Function to change the year and update the table
-  function changeYear(change) {
-    const yearDifference = change % names.length;
-    rotationIndex = (rotationIndex - yearDifference + names.length) % names.length;
-
-    currentYear += change;
-
-    // Check for special cases where everyone is assigned their own self
-    if (currentYear % names.length === 0) {
-      // Override the rotation for these cases
-      rotationIndex = (rotationIndex + 1) % names.length;
-    }
-
-    document.getElementById('year').textContent = currentYear;
-    updateTable();
-  }
-
-  // Initial table update
-  updateTable();
-</script>
+  <script src="script.js"></script>
+  
 </body>
 </html>
