@@ -5,7 +5,7 @@ let rotationIndex = 5; // Adjusted rotationIndex to 5
 let currentYear = 2023;
 
 // Function to update the table based on the current year
-function updateTable() {
+function updateTable(year) {
   for (let i = 0; i < names.length; i++) {
     const currentName = names[i];
     const assignedIndex = (rotationIndex + i) % names.length;
@@ -16,11 +16,11 @@ function updateTable() {
 
   // Update button onClick attributes
   document.getElementById('prev-year').onclick = function() {
-    setYear(currentYear - 1);
+    setYear(year - 1);
   };
 
   document.getElementById('next-year').onclick = function() {
-    setYear(currentYear + 1);
+    setYear(year + 1);
   };
 }
 
@@ -31,8 +31,8 @@ function setYear(year) {
 
   currentYear = year;
   document.getElementById('year').textContent = currentYear;
-  updateTable();
+  updateTable(currentYear);
 }
 
 // Initial table update
-updateTable();
+updateTable(currentYear);
