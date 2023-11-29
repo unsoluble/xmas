@@ -10,7 +10,6 @@ function updateTable(year) {
     const currentName = names[i];
     let assignedIndex;
     let assignedName;
-    const assignedName = names[assignedIndex];
     
     // Repeat until currentName is not equal to assignedName
     do {
