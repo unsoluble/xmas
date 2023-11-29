@@ -1,36 +1,80 @@
-/* style.css */
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: rgb(8, 1, 51);
+}
+
 table {
   border-collapse: collapse;
-  width: 50%;
+  width: 100%;
   margin: 20px auto;
+  overflow: hidden; /* Ensures rounded corners are applied */
+  font-family: 'Mountains of Christmas', cursive, sans-serif;
+  font-size: 2rem;
 }
 
-th, td {
-  border: 1px solid #dddddd;
+td {
   text-align: center;
   padding: 10px;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-
-#year-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-#year {
-  font-size: 24px;
+  background-color: darkred;
+  color: white;
   font-weight: bold;
-  margin: 0 10px;
 }
 
-.year-buttons {
-  display: inline-block;
+.name {
+  text-align: right;
+}
+
+.arrow {
+  padding: 0 5px;
+}
+
+.assigned {
+  text-align: left;
+}
+
+tr:hover {
+  background-color: crimson;
   cursor: pointer;
-  font-size: 18px;
-  padding: 5px;
-  border: none;
-  background-color: #f2f2f2;
+}
+
+tr:hover td {
+  background-color: transparent; /* Set individual cell background to transparent during row hover */
+}
+
+.block {
+  position: relative;
+  margin: 300px auto 0;
+  width: 280px;
+  background: linear-gradient(0deg, #000, #272727);
+}
+
+.block:before, .block:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+    #0000ff, #00ff00,#ffff00, #ff0000);
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.block:after {
+  filter: blur(50px);
 }
