@@ -20,9 +20,35 @@
     th {
       background-color: #f2f2f2;
     }
+
+    #year-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #year {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    #year-buttons {
+      display: inline-block;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 5px;
+      border: none;
+      background-color: #f2f2f2;
+    }
   </style>
 </head>
 <body>
+
+  <div id="year-container">
+    <button id="prev-year" onclick="changeYear(-1)" class="year-buttons">&#9665;</button>
+    <span id="year">2023</span>
+    <button id="next-year" onclick="changeYear(1)" class="year-buttons">&#9655;</button>
+  </div>
 
   <h2>Gift Exchange Assignments</h2>
 
@@ -32,38 +58,67 @@
       <th>Assigned to</th>
     </tr>
     <tr>
-      <td>Megan</td>
-      <td>Mike</td>
+      <td id="name-0">Megan</td>
+      <td id="assigned-to-0">Mike</td>
     </tr>
     <tr>
-      <td>Mike</td>
-      <td>Jenny</td>
+      <td id="name-1">Mike</td>
+      <td id="assigned-to-1">Jenny</td>
     </tr>
     <tr>
-      <td>Jenny</td>
-      <td>Mom</td>
+      <td id="name-2">Jenny</td>
+      <td id="assigned-to-2">Mom</td>
     </tr>
     <tr>
-      <td>Mom</td>
-      <td>John</td>
+      <td id="name-3">Mom</td>
+      <td id="assigned-to-3">John</td>
     </tr>
     <tr>
-      <td>John</td>
-      <td>Mitts</td>
+      <td id="name-4">John</td>
+      <td id="assigned-to-4">Mitts</td>
     </tr>
     <tr>
-      <td>Mitts</td>
-      <td>Alex</td>
+      <td id="name-5">Mitts</td>
+      <td id="assigned-to-5">Alex</td>
     </tr>
     <tr>
-      <td>Alex</td>
-      <td>Gino</td>
+      <td id="name-6">Alex</td>
+      <td id="assigned-to-6">Gino</td>
     </tr>
     <tr>
-      <td>Gino</td>
-      <td>Megan</td>
+      <td id="name-7">Gino</td>
+      <td id="assigned-to-7">Megan</td>
     </tr>
   </table>
+
+  <script>
+    // Initial data
+    const names = ["Megan", "Mike", "Jenny", "Mom", "John", "Mitts", "Alex", "Gino"];
+    let rotationIndex = 0;
+    let currentYear = 2023;
+
+    // Function to update the table based on the current year
+    function updateTable() {
+      for (let i = 0; i < names.length; i++) {
+        const currentName = names[i];
+        const assignedIndex = (rotationIndex + i) % names.length;
+        const assignedName = names[assignedIndex];
+
+        document.getElementById(`assigned-to-${i}`).textContent = assignedName;
+      }
+    }
+
+    // Function to change the year and update the table
+    function changeYear(change) {
+      currentYear += change;
+      document.getElementById('year').textContent = currentYear;
+      rotationIndex = (rotationIndex + 1) % names.length; // Increment rotation index for the next year
+      updateTable();
+    }
+
+    // Initial table update
+    updateTable();
+  </script>
 
 </body>
 </html>
