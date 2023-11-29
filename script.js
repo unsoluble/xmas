@@ -12,6 +12,7 @@ function updateTable(year) {
     const assignedIndex = (rotationIndex + i) % names.length;
     console.log(currentName, names[assignedIndex]);
     if (names[assignedIndex] == currentName) {
+      console.log("Ping");
       assignedName = names[assignedIndex + 1];
     } else {
       assignedName = names[assignedIndex];
