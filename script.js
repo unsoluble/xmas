@@ -48,4 +48,4 @@ function setYear(year) {
 }
 
 // Initial table update
-updateTable(currentYear);
+updateTable(currentYear, rotationIndex);
