@@ -8,9 +8,14 @@ let currentYear = 2023;
 function updateTable(year) {
   for (let i = 0; i < names.length; i++) {
     const currentName = names[i];
+    let assignedName = "";
     const assignedIndex = (rotationIndex + i) % names.length;
-    const assignedName = names[assignedIndex];
-
+    if (names[assignedIndex] == currentName) {
+      assignedName = names[assignedIndex + 1];
+    } else {
+      assignedName = names[assignedIndex];
+    }
+    
     document.getElementById(`assigned-to-${i}`).textContent = assignedName;
   }
 
