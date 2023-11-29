@@ -8,15 +8,16 @@ let currentYear = 2023;
 function updateTable(year) {
   for (let i = 0; i < names.length; i++) {
     const currentName = names[i];
-    let assignedName = "";
-    const assignedIndex = (rotationIndex + i) % names.length;
-    console.log(currentName, names[assignedIndex]);
-    if (names[assignedIndex] == currentName) {
-      console.log("Ping");
-      assignedName = names[assignedIndex + 1];
-    } else {
+    let assignedIndex;
+    let assignedName;
+    const assignedName = names[assignedIndex];
+    
+    // Repeat until currentName is not equal to assignedName
+    do {
+      assignedIndex = (rotationIndex + i) % names.length;
       assignedName = names[assignedIndex];
-    }
+      rotationIndex = (rotationIndex + 1) % names.length;
+    } while (currentName === assignedName);
     
     document.getElementById(`assigned-to-${i}`).textContent = assignedName;
   }
