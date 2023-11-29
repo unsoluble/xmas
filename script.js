@@ -5,7 +5,7 @@ let rotationIndex = 5; // Adjusted rotationIndex to 5
 let currentYear = 2023;
 
 // Function to update the table based on the current year
-function updateTable(year, rotationIndex) {
+function updateTable(year) {
   for (let i = 0; i < names.length; i++) {
     const currentName = names[i];
     const assignedIndex = (rotationIndex + i) % names.length;
@@ -33,19 +33,12 @@ function handleButtonClick(change) {
 // Function to set the current year explicitly and update the table
 function setYear(year) {
   const yearDifference = year - currentYear;
-  let newRotationIndex = (rotationIndex - yearDifference + names.length) % names.length;
-
-  // Check for special cases where everyone is assigned their own self
-  if (year % names.length === 0) {
-    newRotationIndex = (newRotationIndex + 1) % names.length;
-  }
-
-  rotationIndex = newRotationIndex;
+  rotationIndex = (rotationIndex - yearDifference + names.length) % names.length;
 
   currentYear = year;
   document.getElementById('year').textContent = currentYear;
-  updateTable(currentYear, rotationIndex);
+  updateTable(currentYear);
 }
 
 // Initial table update
-updateTable(currentYear, rotationIndex);
+updateTable(currentYear);
