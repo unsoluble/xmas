@@ -17,9 +17,11 @@ function updateTable() {
 
 // Function to set the current year explicitly and update the table
 function setYear(year) {
+  const yearDifference = year - currentYear;
+  rotationIndex = (rotationIndex - yearDifference + names.length) % names.length;
+
   currentYear = year;
   document.getElementById('year').textContent = currentYear;
-  rotationIndex = (rotationIndex + 1) % names.length; // Increment rotation index for the next year
   updateTable();
 }
 
