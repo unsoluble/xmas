@@ -10,6 +10,7 @@ function updateTable(year) {
     const currentName = names[i];
     let assignedName = "";
     const assignedIndex = (rotationIndex + i) % names.length;
+    console.log(currentName, names[assignedIndex]);
     if (names[assignedIndex] == currentName) {
       assignedName = names[assignedIndex + 1];
     } else {
