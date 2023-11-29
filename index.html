@@ -112,9 +112,15 @@
   function changeYear(change) {
     currentYear += change;
 
-    // Calculate the adjustment for the rotation index based on the change in years
-    const yearDifference = change % names.length;
-    rotationIndex = (rotationIndex - yearDifference + names.length) % names.length;
+    // Check for special cases where everyone is assigned their own self
+    if (currentYear % names.length === 0) {
+      // Override the rotation for these cases
+      rotationIndex = (rotationIndex + 1) % names.length;
+    } else {
+      // Calculate the adjustment for the rotation index based on the change in years
+      const yearDifference = change % names.length;
+      rotationIndex = (rotationIndex - yearDifference + names.length) % names.length;
+    }
 
     document.getElementById('year').textContent = currentYear;
     updateTable();
