@@ -1,5 +1,5 @@
 const names = ["Megan", "Mike", "Jenny", "Mom", "John", "Mitts", "Alex", "Gino"];
-let rotationIndex = 5; // Starting index for 2023
+let rotationIndex = 5; // Starting index for 2023 is 5
 
 function updateTable(rotationIndex) {
   for (let i = 0; i < names.length; i++) {

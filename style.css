@@ -14,7 +14,6 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin: 20px auto;
-  overflow: hidden; /* Ensures rounded corners are applied */
   font-family: 'Mountains of Christmas', cursive, sans-serif;
   font-size: 2rem;
 }
@@ -37,15 +36,6 @@ td {
 
 .assigned {
   text-align: left;
-}
-
-tr:hover {
-  background-color: crimson;
-  cursor: pointer;
-}
-
-tr:hover td {
-  background-color: transparent; /* Set individual cell background to transparent during row hover */
 }
 
 .block {
