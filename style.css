@@ -4,6 +4,12 @@ body {
   background: rgb(8, 1, 51);
 }
 
+#container {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -44,8 +50,7 @@ tr:hover td {
 
 .block {
   position: relative;
-  top: 50px;
-  margin: 280px auto 0;
+  margin: 50px auto;
   width: 280px;
   background: linear-gradient(0deg, #000, #272727);
 }
