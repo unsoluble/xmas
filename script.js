@@ -1,28 +1,36 @@
-const names = ["Megan", "Mike", "Jenny", "Mom", "John", "Mitts", "Alex", "Gino"];
+// Gift exchange rotation.
+// Each person is assigned someone new every year. With N people there are
+// N - 1 valid offsets (offset 0 would mean buying for yourself), so the
+// cycle repeats every N - 1 years (7 years for 8 people).
 
-function getAutoRotationIndex() {
-  const currentYear = new Date().getFullYear();
-  const startYear = 2026;
-  const startIndex = 2;
-  
-  const yearDiff = currentYear - startYear;
-  
-  let rotationIndex = (startIndex + yearDiff) % names.length;
-  
-  return rotationIndex < 0 ? rotationIndex + names.length : rotationIndex;
+const names = ['Megan', 'Mike', 'Jenny', 'Mom', 'John', 'Mitts', 'Alex', 'Gino'];
+
+const START_YEAR = 2026; // the year the starting offset applies to
+const START_OFFSET = 2; // offset in START_YEAR (1..names.length - 1)
+
+function getRotationOffset(year = new Date().getFullYear()) {
+  const n = names.length;
+  const cycle = n - 1;
+  const yearDiff = year - START_YEAR;
+  // Positive-safe modulo, then shift from 0..cycle-1 to 1..cycle.
+  const step = (((START_OFFSET - 1 + yearDiff) % cycle) + cycle) % cycle;
+  return step + 1;
 }
 
 function updateTable() {
-  const rotationIndex = getAutoRotationIndex();
-  
+  const offset = getRotationOffset();
+
   for (let i = 0; i < names.length; i++) {
-    const assignedIndex = (rotationIndex + i) % names.length;
-    const assignedName = names[assignedIndex];
-    
-    const element = document.getElementById(`assigned-to-${i}`);
-    if (element) {
-      element.textContent = assignedName;
+    const nameEl = document.getElementById(`name-${i}`);
+    const assignedEl = document.getElementById(`assigned-to-${i}`);
+
+    if (!nameEl || !assignedEl) {
+      console.warn(`Missing table cells for row ${i}; check index.html.`);
+      continue;
     }
+
+    nameEl.textContent = names[i];
+    assignedEl.textContent = names[(i + offset) % names.length];
   }
 }
 
