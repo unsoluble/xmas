@@ -12,55 +12,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="pure-snow.js" defer></script>
+    <style>
+      #year-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        margin-top: 1em;
+      }
+      #year-nav button {
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        padding: 0 0.25em;
+      }
+      #year-nav button:hover {
+        opacity: 0.7;
+      }
+    </style>
   </head>
 
   <body>
     <div id="container">
       <div id="snow" data-count="100"></div>
       <div class="block">
-        <!-- Names and assignments are filled in by script.js (edit the names array there). -->
+        <!-- script.js overwrites these cells each year. The values below are the
+             2026 pairings, shown only if JavaScript fails to run. -->
         <table>
           <tr>
-            <td id="name-0" class="name">&hellip;</td>
+            <td id="name-0" class="name">Megan</td>
             <td class="arrow">&#8594;</td>
-            <td id="assigned-to-0" class="assigned">&hellip;</td>
+            <td id="assigned-to-0" class="assigned">Jenny</td>
           </tr>
           <tr>
-            <td id="name-1" class="name">&hellip;</td>
+            <td id="name-1" class="name">Mike</td>
             <td class="arrow">&#8594;</td>
-            <td id="assigned-to-1" class="assigned">&hellip;</td>
+            <td id="assigned-to-1" class="assigned">Mom</td>
           </tr>
           <tr>
-            <td id="name-2" class="name">&hellip;</td>
+            <td id="name-2" class="name">Jenny</td>
             <td class="arrow">&#8594;</td>
-            <td id="assigned-to-2" class="assigned">&hellip;</td>
+            <td id="assigned-to-2" class="assigned">John</td>
           </tr>
           <tr>
-            <td id="name-3" class="name">&hellip;</td>
+            <td id="name-3" class="name">Mom</td>
             <td class="arrow">&#8594;</td>
-            <td id="assigned-to-3" class="assigned">&hellip;</td>
+            <td id="assigned-to-3" class="assigned">Mitts</td>
           </tr>
           <tr>
-            <td id="name-4" class="name">&hellip;</td>
+            <td id="name-4" class="name">John</td>
             <td class="arrow">&#8594;</td>
-            <td id="assigned-to-4" class="assigned">&hellip;</td>
+            <td id="assigned-to-4" class="assigned">Alex</td>
           </tr>
           <tr>
-            <td id="name-5" class="name">&hellip;</td>
+            <td id="name-5" class="name">Mitts</td>
             <td class="arrow">&#8594;</td>
-            <td id="assigned-to-5" class="assigned">&hellip;</td>
+            <td id="assigned-to-5" class="assigned">Gino</td>
           </tr>
           <tr>
-            <td id="name-6" class="name">&hellip;</td>
+            <td id="name-6" class="name">Alex</td>
             <td class="arrow">&#8594;</td>
-            <td id="assigned-to-6" class="assigned">&hellip;</td>
+            <td id="assigned-to-6" class="assigned">Megan</td>
           </tr>
           <tr>
-            <td id="name-7" class="name">&hellip;</td>
+            <td id="name-7" class="name">Gino</td>
             <td class="arrow">&#8594;</td>
-            <td id="assigned-to-7" class="assigned">&hellip;</td>
+            <td id="assigned-to-7" class="assigned">Mike</td>
           </tr>
         </table>
+        <div id="year-nav">
+          <button id="year-prev" type="button" aria-label="Previous year">&larr;</button>
+          <span id="year-display">2026</span>
+          <button id="year-next" type="button" aria-label="Next year">&rarr;</button>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
