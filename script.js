@@ -3,13 +3,13 @@
 // N - 1 valid offsets (offset 0 would mean buying for yourself), so the
 // cycle repeats every N - 1 years (7 years for 8 people).
 
-const names = ["Megan", "Mike", "Jenny", "Mom", "John", "Mitts", "Alex", "Gino"];
+const names = ['Megan', 'Mike', 'Jenny', 'Mom', 'John', 'Mitts', 'Alex', 'Gino'];
 
-const START_YEAR = 2026;  // the year the starting offset applies to
-const START_OFFSET = 2;   // offset in START_YEAR (1..names.length - 1)
+const START_YEAR = 2026; // the year the starting offset applies to
+const START_OFFSET = 1; // offset in START_YEAR (1..names.length - 1)
 
 const currentYear = new Date().getFullYear();
-let displayYear = currentYear;  // the year whose rotation is shown
+let displayYear = currentYear; // the year whose rotation is shown
 
 function getRotationOffset(year) {
   const n = names.length;
@@ -36,7 +36,7 @@ function updateTable() {
     assignedEl.textContent = names[(i + offset) % names.length];
   }
 
-  const yearEl = document.getElementById("year-display");
+  const yearEl = document.getElementById('year-display');
   if (yearEl) {
     yearEl.textContent = displayYear;
   }
@@ -47,9 +47,9 @@ function changeYear(delta) {
   updateTable();
 }
 
-const prevBtn = document.getElementById("year-prev");
-const nextBtn = document.getElementById("year-next");
-if (prevBtn) prevBtn.addEventListener("click", () => changeYear(-1));
-if (nextBtn) nextBtn.addEventListener("click", () => changeYear(1));
+const prevBtn = document.getElementById('year-prev');
+const nextBtn = document.getElementById('year-next');
+if (prevBtn) prevBtn.addEventListener('click', () => changeYear(-1));
+if (nextBtn) nextBtn.addEventListener('click', () => changeYear(1));
 
 updateTable();
