@@ -17,8 +17,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 1em;
+        gap: 0.6em;
         margin-top: 1em;
+        color: #fff;
+        font-family: "Mountains of Christmas", cursive;
+        font-weight: 700;
+        font-size: 2.2rem;
+        line-height: 1;
       }
       #year-nav button {
         background: none;
@@ -26,7 +31,7 @@
         color: inherit;
         font: inherit;
         cursor: pointer;
-        padding: 0 0.25em;
+        padding: 0 0.3em;
       }
       #year-nav button:hover {
         opacity: 0.7;
@@ -82,11 +87,11 @@
             <td id="assigned-to-7" class="assigned">Mike</td>
           </tr>
         </table>
-        <div id="year-nav">
-          <button id="year-prev" type="button" aria-label="Previous year">&larr;</button>
-          <span id="year-display">2026</span>
-          <button id="year-next" type="button" aria-label="Next year">&rarr;</button>
-        </div>
+      </div>
+      <div id="year-nav">
+        <button id="year-prev" type="button" aria-label="Previous year">&#8592;</button>
+        <span id="year-display">2026</span>
+        <button id="year-next" type="button" aria-label="Next year">&#8594;</button>
       </div>
     </div>
     <script src="script.js"></script>
